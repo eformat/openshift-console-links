@@ -63,12 +63,19 @@ done
 
 shift `expr $OPTIND - 1`
 
+rc=0
+oc whoami 1,2>/dev/null || rc=$?
+if [ "${rc}" -ne 0 ]; then
+    echo "try oc login first?"
+    exit 1;
+fi    
+
 read -r -a urls <<< $(echo -n $(oc get route -n labs-ci-cd --no-headers -o custom-columns=ROUTE:.spec.host,NAME:.metadata.name))
 
 project=$(oc project -q)
 
 if [ -z "$urls" ] || [ -z "$project" ]; then
-    echo "could not find urls or project, try oc login?"
+    echo "could not find any urls or project, try switching project?"
     exit 1;
 fi
 
