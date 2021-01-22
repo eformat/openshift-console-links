@@ -41,6 +41,7 @@ done
 usage() {
   cat <<EOF 2>&1
 usage: $0 [ -d ] 
+
 create or delete ocp console links from current project
     -d      delete consolelinks
     -h      help
