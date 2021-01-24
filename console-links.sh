@@ -18,7 +18,7 @@ spec:
   applicationMenu:
     imageURL: >-
       {{ .image_url }}
-    section: "Labs CICD Tools"
+    section: "$project"
   href: "https://${urls[index]}"
   location: ApplicationMenu
   text: "${urls[index+1]}"
