@@ -70,7 +70,7 @@ if [ "${rc}" -ne 0 ]; then
     exit 1;
 fi    
 
-read -r -a urls <<< $(echo -n $(oc get route -n labs-ci-cd --no-headers -o custom-columns=ROUTE:.spec.host,NAME:.metadata.name))
+read -r -a urls <<< $(echo -n $(oc get route --no-headers -o custom-columns=ROUTE:.spec.host,NAME:.metadata.name))
 
 project=$(oc project -q)
 
