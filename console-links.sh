@@ -13,7 +13,7 @@ cat <<EOF | oc apply -f -
 apiVersion: console.openshift.io/v1
 kind: ConsoleLink
 metadata:
-  name: "${urls[index+1]}"
+  name: "${urls[index+1]}-$project"
 spec:
   applicationMenu:
     imageURL: >-
